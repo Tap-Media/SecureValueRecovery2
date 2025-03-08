@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  buildenv:
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: builder
+    container_name: buildenv_shell
+    entrypoint: "tail -f /dev/null"
+    volumes:
+      - .:/src
