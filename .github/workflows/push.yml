@@ -1,8 +1,7 @@
 name: Build and push Docker image
 
 on:
-  release:
-    types: [published]
+  workflow_dispatch: # Enables manual trigger
 
 env:
   DOCKER_BUILD_ARGS: --cache-from type=gha --cache-to type=gha
