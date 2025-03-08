@@ -1,5 +1,5 @@
 name: CI
-on: [push]
+  workflow_dispatch: # Enables manual trigger
 
 env:
   DOCKER_BUILD_ARGS: --cache-from type=gha --cache-to type=gha
