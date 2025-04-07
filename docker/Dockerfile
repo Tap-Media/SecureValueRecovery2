@@ -141,6 +141,7 @@ RUN apt-get update && apt-get install -y \
 COPY host/main /bin/svr2
 COPY enclave/releases/sgx /enclaves
 COPY host/cmd/control/control /bin/svr3control
+COPY docker/sample_sgx_default_qcnl_azure.conf /etc/sgx_default_qcnl.conf
 RUN ln -s /bin/svr3control /bin/svr2control
 
 ENTRYPOINT ["/bin/svr2"]
