@@ -138,6 +138,11 @@ RUN apt-get update && apt-get install -y \
     libsgx-dcap-default-qpl=1.21.100.3-focal1 \
     libsgx-dcap-default-qpl-dev=1.21.100.3-focal1 \
     libcurl4
+RUN echo "deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu bionic main" | tee /etc/apt/sources.list.d/intel-sgx.list \
+    && wget -qO - https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key | apt-key add -
+RUN apt-get update && apt-get install -y \
+    libsgx-aesm-quote-ex-plugin \
+    libsgx-quote-ex
 COPY host/main /bin/svr2
 COPY enclave/releases/sgx /enclaves
 COPY host/cmd/control/control /bin/svr3control
