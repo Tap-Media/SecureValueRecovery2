@@ -142,7 +142,8 @@ RUN echo "deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu bio
     && wget -qO - https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key | apt-key add -
 RUN apt-get update && apt-get install -y \
     libsgx-aesm-quote-ex-plugin \
-    libsgx-quote-ex
+    libsgx-quote-ex \
+    az-dcap-client
 COPY host/main /bin/svr2
 COPY enclave/releases/sgx /enclaves
 COPY host/cmd/control/control /bin/svr3control
